@@ -17,11 +17,34 @@
  */
 package baseline;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListController {
+
+
+    private ObservableList<Item> items;
+
+    @FXML
+    private TableView<Item> table;
+
+    @FXML
+    private TableColumn<Item,Boolean> col1;
+
+    @FXML
+    private TableColumn<Item,String>  col2;
+
+    @FXML
+    private TableColumn<Item,String>  col3;
 
     @FXML
     private TextField descriptionTextField;
@@ -32,9 +55,25 @@ public class ListController {
     @FXML
     //When the add button is pressed a new Item object will be created with descriptionTextField and dateTextField passed through.
     //This item will then be added to the table
-    private void addItem(ActionEvent event)
-    {
 
+
+
+
+
+    public void addItem(ActionEvent event)
+    {
+        try{
+
+
+            items.add(new Item(descriptionTextField.getText(),dateTextField.getText()));
+            table.getItems().setAll(items);
+
+
+        }
+        catch(Exception e)
+        {
+
+        }
     }
 
 
