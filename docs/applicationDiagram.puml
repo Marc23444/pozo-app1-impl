@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Item
+{
+    -String description
+    -String date
+    -boolean state
+
+    +Item(String description)
+    +Item(String description, String date)
+
+    +setDate(String date)
+    +setDescription(String description)
+    +setState(boolean state)
+
+    +String getDate()
+    +String getDescription()
+    +boolean isState()
+
+}
+
+class ListController
+{
+    -TextField descriptionTextField
+    -TextField dateTextField
+
+    -addItem(ActionEvent event)
+}
+
+ListController "Create objects of"*-- Item
+
+
+@enduml

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="baseline.ListController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints />
+    <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="305.0" minHeight="20.0" prefHeight="305.0" valignment="TOP" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="55.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" GridPane.rowIndex="1">
+        <items>
+          <Button mnemonicParsing="false" text="Save" />
+            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" text="Load" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" translateX="400.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+        </items>
+      </ToolBar>
+      <TableView GridPane.rowIndex="3">
+        <columns>
+          <TableColumn prefWidth="53.0" text="Status" />
+          <TableColumn prefWidth="454.0" text="Description" />
+            <TableColumn prefWidth="92.0" text="Date" />
+        </columns>
+      </TableView>
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="173.0" promptText="Description" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="Due Date" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="14.0" left="200.0" right="14.0" top="14.0" />
+         </GridPane.margin>
+      </TextField>
+      <Button mnemonicParsing="false" text="Add" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="14.0" left="300.0" right="14.0" top="14.0" />
+         </GridPane.margin>
+      </Button>
+   </children>
+</GridPane>
