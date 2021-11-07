@@ -11,34 +11,31 @@
             -The table
         -Methods in this class will include:
             -addItem
-
-
-
  */
 package baseline;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
-import java.util.ArrayList;
-import java.util.List;
+public class ListController implements Initializable{
 
-public class ListController {
-
-
-    private ObservableList<Item> items;
+    ObservableList<Item> items = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Item> table;
 
     @FXML
-    private TableColumn<Item,Boolean> col1;
+    private TableColumn<Item,String> col1;
 
     @FXML
     private TableColumn<Item,String>  col2;
@@ -52,31 +49,41 @@ public class ListController {
     @FXML
     private TextField dateTextField;
 
-    @FXML
+    public void initialize(URL url, ResourceBundle rb)
+    {
+        //Setup the columns in the table
+        col1.setCellValueFactory(new PropertyValueFactory<Item,String>("Status"));
+        col2.setCellValueFactory(new PropertyValueFactory<Item,String>("Description"));
+        col3.setCellValueFactory(new PropertyValueFactory<Item,String>("Date"));
+        table.setItems(getItems());
+    }
+
+    public ObservableList<Item> getItems()
+    {
+
+
+
+        return items;
+    }
+
+    public void setItems(String description, String date)
+    {
+        items.add(new Item(description,date));
+    }
+
     //When the add button is pressed a new Item object will be created with descriptionTextField and dateTextField passed through.
     //This item will then be added to the table
-
-
-
-
-
+    @FXML
     public void addItem(ActionEvent event)
     {
         try{
 
-
-            items.add(new Item(descriptionTextField.getText(),dateTextField.getText()));
-            table.getItems().setAll(items);
-
-
+            setItems(descriptionTextField.getText(),dateTextField.getText());
         }
         catch(Exception e)
         {
 
         }
     }
-
-
-
 
 }

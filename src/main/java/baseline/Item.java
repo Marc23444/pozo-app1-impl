@@ -32,12 +32,13 @@ public class Item {
     //Used when the user doesn't enter a date
     public Item(String description)
     {
-
+        this.description = description;
     }
     //Used when the user does enter a date
     public Item(String description, String date)
     {
-
+        this.description = description;
+        this.date = date;
     }
 
     //Setters
