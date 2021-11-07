@@ -23,49 +23,70 @@
  */
 package baseline;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.scene.control.DatePicker;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+
 public class Item {
 
-    private String description;
-    private String date;
-    private boolean state;
+    private String Description;
+    private DatePicker Date;
+    private BooleanProperty State;
+
+    public Item()
+    {
+        this.Description = null;
+        this.Date = null;
+        this.State = null;
+    }
 
     //Used when the user doesn't enter a date
     public Item(String description)
     {
-        this.description = description;
+        this.Description = description;
+        this.State = new SimpleBooleanProperty(false);
     }
     //Used when the user does enter a date
-    public Item(String description, String date)
+    public Item(String description, DatePicker date)
     {
-        this.description = description;
-        this.date = date;
+        this.Description = description;
+        this.State = new SimpleBooleanProperty(false);
+        this.Date = date;
     }
 
+    public Item(String description, DatePicker date, boolean state)
+    {
+        this.Description = description;
+        this.State = new SimpleBooleanProperty(state);
+        this.Date = date;
+    }
+
+
     //Setters
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(DatePicker date) {
+        this.Date = date;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
 
-    public void setState(boolean state) {
-        this.state = state;
-    }
+    public void setState(boolean state) { this.State.setValue(state); }
 
     //Getters
-    public String getDate() {
-        return date;
+    public DatePicker getDate() {
+        return Date;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
-    public boolean isState() {
-        return state;
-    }
+    public BooleanProperty isState() { return State; }
 
 
 }

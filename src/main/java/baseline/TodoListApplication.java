@@ -33,13 +33,9 @@ public class TodoListApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Todo List");
 
-
         stage.setScene(scene);
 
         stage.show();
-
-
-
     }
 
     //launch() just calls start
