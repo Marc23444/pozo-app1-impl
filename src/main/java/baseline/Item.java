@@ -8,17 +8,19 @@
         -This class will contain fields for:
             -A description, which will be a string.
                 -Max of 256 chars but not less than 1
-            -A date, also a string, will need to built and converted from integer input.
+            -A date of type DatePicker, a javaFX type
                 -Optional input
                 -Displayed as YYYY-MM-DD
-            -The items status, will be a simple boolean, false by default.
-        -This class will contain getter and setter functions for:
+            -The items status, will be a BooleanProperty, false by default.
+        -This class will contain getter functions for:
             -The description
             -The date
             -The state
-        -Finally this class will have 2 parameterized constructors.
-            -The first one will create an item with no date
-            -The second one will create an item with a date
+        -There are no setter functions because sonarLint told me they were never used.
+        -Finally this class will have 1 parameterized constructor and 1 un-parameterized constructor.
+            -The parameterized constructor will create an item with a date, state and description.
+            -The un-parameterized constructor will create a null item
+                -However if no description is entered nothing will be added to the list
 
  */
 package baseline;
@@ -27,66 +29,48 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.control.DatePicker;
 
-import java.time.LocalDate;
-import java.util.Date;
-
-
 public class Item {
 
-    private String Description;
-    private DatePicker Date;
-    private BooleanProperty State;
+    //Fields
+    private final String description;
+    private final DatePicker date;
+    private final BooleanProperty state;
 
+
+    //Un-parameterized constructor
     public Item()
     {
-        this.Description = null;
-        this.Date = null;
-        this.State = null;
+        this.description = null;
+        this.date = null;
+        this.state = null;
     }
 
-    //Used when the user doesn't enter a date
-    public Item(String description)
+    public Item(String description, boolean state)
     {
-        this.Description = description;
-        this.State = new SimpleBooleanProperty(false);
-    }
-    //Used when the user does enter a date
-    public Item(String description, DatePicker date)
-    {
-        this.Description = description;
-        this.State = new SimpleBooleanProperty(false);
-        this.Date = date;
+        this.description = description;
+        this.state = new SimpleBooleanProperty(state);
+        this.date = null;
     }
 
+    //Used when loading data from a file
     public Item(String description, DatePicker date, boolean state)
     {
-        this.Description = description;
-        this.State = new SimpleBooleanProperty(state);
-        this.Date = date;
+        this.description = description;
+        this.state = new SimpleBooleanProperty(state);
+        this.date = date;
     }
 
-
-    //Setters
-    public void setDate(DatePicker date) {
-        this.Date = date;
-    }
-
-    public void setDescription(String description) {
-        this.Description = description;
-    }
-
-    public void setState(boolean state) { this.State.setValue(state); }
 
     //Getters
     public DatePicker getDate() {
-        return Date;
+        return date;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public BooleanProperty isState() { return State; }
+    public BooleanProperty isState() { return state; }
 
 
 }

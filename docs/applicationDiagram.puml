@@ -4,15 +4,12 @@
 class Item
 {
     -String description
-    -String date
-    -boolean state
+    -DatePicker date
+    -BooleanProperty state
 
-    +Item(String description)
-    +Item(String description, String date)
-
-    +setDate(String date)
-    +setDescription(String description)
-    +setState(boolean state)
+    +Item()
+    +Item(String description,boolean state)
+    +Item(String description,DatePicker date, boolean state)
 
     +String getDate()
     +String getDescription()
@@ -20,15 +17,48 @@ class Item
 
 }
 
-class ListController
+class TodoListApplication extends Application
 {
-    -TextField descriptionTextField
-    -TextField dateTextField
+    +void start(Stage stage)
+    +{static}void main(String[] args)
 
-    -addItem(ActionEvent event)
 }
 
+
+class ListController implements Initializable
+{
+    -TextField descriptionTextField
+    -DatePicker dateTextField
+
+    -TableView<Item> table
+    -TableColumn<Item,Boolean> col1
+    -TableColumn<Item,String> col2
+    -TableColumn<Item,String> col1
+
+    +void initialize(URL url, ResourceBundle rb)
+
+    -void createItem(String description, LocalDate date, boolean state)
+    +void addItem()
+    +void deleteItem()
+    +void clearList()
+
+    +void showComplete()
+    +void showIncomplete()
+    +void showAll()
+
+    +void saveList()
+    +void loadList()
+
+    +void helpButton()
+
+
+
+}
+
+TodoListApplication "Initializes FXML which \n uses ListController"*-- ListController
+
 ListController "Create objects of"*-- Item
+
 
 
 @enduml

@@ -15,29 +15,27 @@ package baseline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class TodoListApplication extends Application {
 
-
-
     @Override
-
     //Loads and opens the fxml file
-    public void start(Stage stage) throws IOException{
+    public void start(Stage stage) throws IOException
+    {
+        //Loads the fxml file and sets it to a new scene
         FXMLLoader fxmlLoader = new FXMLLoader(TodoListApplication.class.getResource("todo-list-gui.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Todo List");
 
         stage.setScene(scene);
 
+        //Displays the window
         stage.show();
     }
 
     //launch() just calls start
     public static void main(String[] args) { launch(); }
+
 }

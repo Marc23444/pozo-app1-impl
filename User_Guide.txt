@@ -1,0 +1,15 @@
+ToDo List User guide
+====================
+1. To add a new item to the list input a description (required) and a date (optional), then left click the add button located next to date picker.
+2. To remove an item right click on a row (make sure the row you want to delete is highlighted) to bring up the context menu, then left click the delete button.
+3. To clear ALL ITEMS in a list left click the clear button located next to the add button.
+4. To edit the description double click the description you would like to change. Make the changes youd like then click enter to commit those changes.
+5. To edit the date left click the date picker and chose the date you'd like to change it too.
+6. To mark an item incomplete/complete left click the checkbox associated with the item you'd like to mark.
+7. To display all items in the ToDo list left click the view button in the top left corner. Then left click Show All.
+8. To display incomplete items, left click the view button in the top left corner then left click the Show Incomplete button.
+9. To display completed items, left click the view button in the top left corner then left click Show Complete button.
+10. To save your ToDo list to a file (specifically a .txt file) click the File button in the top left, then left click the save button. 
+	Then choose the file you'd like to save the list to (note: at this time data can only be saved to .txt files).	
+11. To loaad your ToDo list from a file (specifically a .txt file) click the FIle button in the top left, then left click the load button.
+	Then choose or create the file you'd like to load from (note: at this time data can only be loaded from .txt files).

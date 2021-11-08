@@ -43,7 +43,7 @@
       <TableView fx:id="table" GridPane.rowIndex="5">
         <columns>
           <TableColumn fx:id="col1" prefWidth="53.0" text="Status" />
-          <TableColumn fx:id="col2" onEditCommit="#onEditDescription" prefWidth="422.0" text="Description" />
+          <TableColumn fx:id="col2" prefWidth="422.0" text="Description" />
             <TableColumn fx:id="col3" prefWidth="124.0" text="Date" />
         </columns>
          <contextMenu>
@@ -86,15 +86,15 @@
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="View">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#showCompleted" text="View Complete" />
-                  <MenuItem mnemonicParsing="false" onAction="#showIncomplete" text="View Incomplete" />
-                  <MenuItem mnemonicParsing="false" onAction="#showAll" text="View All" />
-            </items>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showComplete" text="Show Complete" />
+                  <MenuItem mnemonicParsing="false" onAction="#showIncomplete" text="Show Incomplete" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAll" text="Show All" />
+               </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#helpButton" text="User Guide" />
             </items>
           </Menu>
         </menus>
